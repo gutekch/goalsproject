@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
       storedItems.push({
         goal: goalText,
         deadline: deadlineText,
-        daysLeft: days
+        daysLeft: days,
       });
     } else {
       console.log("ERROR: both goal and deadline inputs are required");
@@ -49,25 +49,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   delButton.addEventListener("click", function () {
-    const oldStorage = storedItems;
     const checkboxes = document.querySelectorAll(
       '#entered-goals li input[type="checkbox"]'
     );
-    // console.log(checkboxes)
-    // checkboxes.forEach((checkbox, index) => {
-    //   if (!checkbox.checked) {
-    //     storedItems.splice(index, 1);
-    //     localStorage.setItem("key", JSON.stringify(storedItems));
-    //     updateDisplay();
-    //   }
-    // });
 
-    const newStorage = storedItems.filter((item,index) => {
+    const newStorage = storedItems.filter((item, index) => {
       return checkboxes[index].checked === false;
     });
-    console.log(newStorage);
     localStorage.setItem("key", JSON.stringify(newStorage));
     updateDisplay(newStorage);
-    console.log(`storedItems:${JSON.stringify(storedItems)}`);
   });
 });
