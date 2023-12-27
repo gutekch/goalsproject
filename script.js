@@ -21,6 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
       .join("");
   }
 
+  console.log("Hej!");
+
   updateDisplay();
 
   button.addEventListener("click", function () {
@@ -58,7 +60,5 @@ document.addEventListener("DOMContentLoaded", function () {
         updateDisplay();
       }
     });
-
-
   });
 });
